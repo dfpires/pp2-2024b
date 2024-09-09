@@ -1,0 +1,44 @@
+{
+  "clients": [
+    {
+      "id": "1",
+      "nome": "Paulo",
+      "endereco": "Franca",
+      "rg": "123",
+      "cpf": "456"
+    },
+    {
+      "id": "2",
+      "nome": "Pedro 2",
+      "endereco": "Batatais 2",
+      "rg": "2342",
+      "cpf": "5672"
+    },
+    {
+      "id": "080e",
+      "nome": "dasdasdasdasdsadas",
+      "endereco": "dasdasdasdasdas",
+      "rg": "2222222",
+      "cpf": "22222222"
+    },
+    {
+      "id": "3b05",
+      "nome": "666",
+      "endereco": "666",
+      "rg": "666",
+      "cpf": "666"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "password": "password1"
+    }
+  ]
+}
