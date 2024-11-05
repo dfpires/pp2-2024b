@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.JwtUtil;
 import com.example.demo.dto.UsuarioDTO;
 import com.example.demo.entity.Usuario;
 import com.example.demo.repository.UsuarioRepository;
@@ -17,6 +18,9 @@ public class UsuarioService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     // Listar todos os usuários
     public List<Usuario> listarTodos() {
@@ -54,6 +58,21 @@ public class UsuarioService {
             usuarioRepository.deleteById(id);
         } else {
             throw new IllegalArgumentException("Usuário não encontrado.");
+        }
+    }
+
+    public String autentica(String email, String senha) {
+        // Buscar o usuário pelo email
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("Email/Senha não encontradas"));
+
+        // Verificar a senha usando BCrypt
+        if (passwordEncoder.matches(senha, usuario.getSenha())) {
+            // Gerar o token JWT se a senha for válida
+            // uma das informações do token é o payload (email)
+            return jwtUtil.generateToken(email);
+        } else {
+            throw new IllegalArgumentException("Email/Senha inválidas");
         }
     }
 }

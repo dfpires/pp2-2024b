@@ -24,6 +24,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/usuarios/**").permitAll()  // Permite acesso a todos os endpoints de usuário
                         .requestMatchers("/api/produtos/**").permitAll()  // Permite acesso a todos os endpoints de produtos
                         .requestMatchers("/api/pedidos/**").permitAll()
+                        .requestMatchers("/api/login/**").permitAll()
                         .anyRequest().authenticated());  // Bloqueia todos os outros endpoints
         return http.build();
     }

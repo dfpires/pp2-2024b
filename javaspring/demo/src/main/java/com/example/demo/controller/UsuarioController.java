@@ -60,4 +60,5 @@ public class UsuarioController {
             return new ResponseEntity<>("Erro ao excluir: " + e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+   
 }
